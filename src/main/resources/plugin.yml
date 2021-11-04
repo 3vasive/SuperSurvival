@@ -1,0 +1,8 @@
+name: SuperSurvival
+version: '${project.version}'
+main: me.evasive.supersurvival.SuperSurvival
+api-version: 1.17
+commands:
+  skills:
+    description: Skill Commands
+    usage: /skills
