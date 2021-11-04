@@ -39,8 +39,28 @@ public class ExperienceManager {
         return miningMap.get(uuid);
     }
 
-    public long getLevel(UUID uuid){
-        int level = (int) Math.sqrt(miningMap.get(uuid) / 25);
+    public int getExperienceNeeded(UUID uuid){
+        int xp = miningMap.get(uuid);
+        int level = getLevel(uuid);
+        int nextlevel = level + 1;
+        int exp = 100 * (nextlevel * nextlevel);
+        return exp;
+    }
+
+    public boolean checkLevelUp(UUID uuid, int gain){
+        int xp = miningMap.get(uuid);
+        int level = getLevel(uuid);
+        int nextlevel = level + 1;
+        int exp = 100 * (nextlevel * nextlevel);
+        if(xp + gain >= exp){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public int getLevel(UUID uuid){
+        int level = (int) Math.sqrt(miningMap.get(uuid) / 100);
         return level;
     }
 

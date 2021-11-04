@@ -41,7 +41,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>de.jeff_media.customblockdata.CustomBlockData</pattern>
-                                    <shadedPattern>your.package.name.CustomBlockData</shadedPattern>
+                                    <shadedPattern>me.evasive.CustomBlockData</shadedPattern>
                                 </relocation>
                             </relocations>
                             <createDependencyReducedPom>false</createDependencyReducedPom>

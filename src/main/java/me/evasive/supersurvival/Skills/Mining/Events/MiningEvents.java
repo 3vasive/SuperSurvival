@@ -36,19 +36,38 @@ public class MiningEvents implements Listener {
         NamespacedKey key = new NamespacedKey(this.plugin, "SuperSurvival");
         CustomBlockData customBlockData = new CustomBlockData(e.getBlock(), this.plugin);
         if (!customBlockData.has(key, PersistentDataType.STRING)){
-            if (e.getBlock().getType().equals(Material.COAL_ORE) || e.getBlock().getType().equals(Material.DEEPSLATE_COAL_ORE) || e.getBlock().getType().equals(Material.NETHER_GOLD_ORE) || e.getBlock().getType().equals(Material.NETHER_QUARTZ_ORE) || e.getBlock().getType().equals(Material.REDSTONE_ORE) || e.getBlock().getType().equals(Material.DEEPSLATE_REDSTONE_ORE) || e.getBlock().getType().equals(Material.LAPIS_ORE) || e.getBlock().getType().equals(Material.DEEPSLATE_LAPIS_ORE)){
-                experienceManager.addExperience(player.getUniqueId(), 1);
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GREEN + "+ " + 1 + " XP"));
+            if (e.getBlock().getType().equals(Material.COAL_ORE) || e.getBlock().getType().equals(Material.DEEPSLATE_COAL_ORE) || e.getBlock().getType().equals(Material.NETHER_GOLD_ORE) || e.getBlock().getType().equals(Material.NETHER_QUARTZ_ORE)) {
+                if (experienceManager.checkLevelUp(player.getUniqueId(), 20)) {
+                    player.sendMessage("You have leveled up to level " + (experienceManager.getLevel(player.getUniqueId()) + 1));
+                }
+                experienceManager.addExperience(player.getUniqueId(), 20);
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GREEN + "+ " + 20 + " XP " + experienceManager.getExperience(player.getUniqueId()) + "/" + experienceManager.getExperienceNeeded(player.getUniqueId())));
+            }else if (e.getBlock().getType().equals(Material.REDSTONE_ORE) || e.getBlock().getType().equals(Material.DEEPSLATE_REDSTONE_ORE) || e.getBlock().getType().equals(Material.LAPIS_ORE) || e.getBlock().getType().equals(Material.DEEPSLATE_LAPIS_ORE)){
+                if (experienceManager.checkLevelUp(player.getUniqueId(), 30)){
+                    player.sendMessage("You have leveled up to level " + (experienceManager.getLevel(player.getUniqueId()) + 1));
+                }
+                experienceManager.addExperience(player.getUniqueId(), 30);
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GREEN + "+ " + 30 + " XP " + experienceManager.getExperience(player.getUniqueId()) + "/" + experienceManager.getExperienceNeeded(player.getUniqueId())));
             }else if (e.getBlock().getType().equals(Material.IRON_ORE) || e.getBlock().getType().equals(Material.DEEPSLATE_IRON_ORE) || e.getBlock().getType().equals(Material.COPPER_ORE) || e.getBlock().getType().equals(Material.DEEPSLATE_COPPER_ORE)){
-                experienceManager.addExperience(player.getUniqueId(), 3);
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GREEN + "+ " + 3 + " XP"));
+                if (experienceManager.checkLevelUp(player.getUniqueId(), 50)){
+                    player.sendMessage("You have leveled up to level " + (experienceManager.getLevel(player.getUniqueId()) + 1));
+                }
+                experienceManager.addExperience(player.getUniqueId(), 50);
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GREEN + "+ " + 50 + " XP " + experienceManager.getExperience(player.getUniqueId()) + "/" + experienceManager.getExperienceNeeded(player.getUniqueId())));
             }else if (e.getBlock().getType().equals(Material.GOLD_ORE) || e.getBlock().getType().equals(Material.DEEPSLATE_GOLD_ORE)){
-                experienceManager.addExperience(player.getUniqueId(), 5);
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GREEN + "+ " + 5 + " XP"));
+                if (experienceManager.checkLevelUp(player.getUniqueId(), 100)){
+                    player.sendMessage("You have leveled up to level " + (experienceManager.getLevel(player.getUniqueId()) + 1));
+                }
+                experienceManager.addExperience(player.getUniqueId(), 100);
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GREEN + "+ " + 100 + " XP " + experienceManager.getExperience(player.getUniqueId()) + "/" + experienceManager.getExperienceNeeded(player.getUniqueId())));
             }else if (e.getBlock().getType().equals(Material.DIAMOND_ORE) || e.getBlock().getType().equals(Material.DEEPSLATE_DIAMOND_ORE) || e.getBlock().getType().equals(Material.EMERALD_ORE) || e.getBlock().getType().equals(Material.DEEPSLATE_EMERALD_ORE)){
-                experienceManager.addExperience(player.getUniqueId(), 10);
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GREEN + "+ " + 10 + " XP"));
+                if (experienceManager.checkLevelUp(player.getUniqueId(), 150)){
+                    player.sendMessage("You have leveled up to level " + (experienceManager.getLevel(player.getUniqueId()) + 1));
+                }
+                experienceManager.addExperience(player.getUniqueId(), 150);
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GREEN + "+ " + 150 + " XP " + experienceManager.getExperience(player.getUniqueId()) + "/" + experienceManager.getExperienceNeeded(player.getUniqueId())));
             }
+            customBlockData.set(key, PersistentDataType.STRING , "Placed");
         }
     }
 
