@@ -19,6 +19,7 @@ public final class SuperSurvival extends JavaPlugin {
         this.saveDefaultConfig();
         PlayerConfig.setup();
         getServer().getPluginManager().registerEvents(new MiningEvents(this), this);
+        getServer().getPluginManager().registerEvents(new JoinEvent(this), this);
         //getServer().getPluginManager().registerEvents(new ChunkLoad(this), this);
         MiningEvents.miningExperienceManager.loadWorldData();
         //MiningEvents.placedBlockManager.loadWorldData();

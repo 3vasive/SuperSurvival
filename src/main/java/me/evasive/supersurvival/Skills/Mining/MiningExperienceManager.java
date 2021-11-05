@@ -19,6 +19,12 @@ public class MiningExperienceManager {
         this.miningMap = new HashMap<>();
     }
 
+    public void onJoin(UUID uuid){
+        if (!miningMap.containsKey(uuid)){
+            miningMap.put(uuid, 0);
+        }
+    }
+
     public void addExperience(UUID uuid, int amount){
         if (miningMap.containsKey(uuid)){
             miningMap.put(uuid, miningMap.get(uuid) + amount);
