@@ -1,4 +1,39 @@
 package me.evasive.supersurvival.Skills.Commands;
 
-public class Commands {
+import me.evasive.supersurvival.Skills.Mining.Events.MiningEvents;
+import me.evasive.supersurvival.SuperSurvival;
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+public class Commands implements CommandExecutor {
+    public SuperSurvival plugin;
+
+    public Commands(SuperSurvival plugin){
+        this.plugin = plugin;
+        plugin.getCommand("skills").setExecutor(this);
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (sender.hasPermission("supersurvival.admin")){
+            if (args.length == 0){
+                Player player = (Player) sender;
+                sender.sendMessage("Mining: " + MiningEvents.miningExperienceManager.getLevel(player.getUniqueId()));
+                sender.sendMessage("Logging: null");
+                sender.sendMessage("Fishing: null");
+                sender.sendMessage("Farming: null");
+                sender.sendMessage("Hunting: null");
+                sender.sendMessage("Cooking: null");
+                //Show command running players skills
+                return true;
+            }else if(args.length == 1) {
+                //Show playername skills
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -10,12 +10,12 @@ import java.util.UUID;
 
 import java.lang.Math;
 
-public class ExperienceManager {
+public class MiningExperienceManager {
 
     private final Map<UUID, Integer> miningMap;
 
 
-    public ExperienceManager() {
+    public MiningExperienceManager() {
         this.miningMap = new HashMap<>();
     }
 
@@ -44,7 +44,14 @@ public class ExperienceManager {
         int level = getLevel(uuid);
         int nextlevel = level + 1;
         int exp = 100 * (nextlevel * nextlevel);
-        return exp;
+        int prevxp = 100 * (level * level);
+        return exp - prevxp;
+    }
+
+    public int getLevelExperience(UUID uuid){
+        int level = getLevel(uuid);
+        int xp = 100 * (level * level);
+        return xp;
     }
 
     public boolean checkLevelUp(UUID uuid, int gain){
