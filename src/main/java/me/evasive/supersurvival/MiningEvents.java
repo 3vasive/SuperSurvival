@@ -1,4 +1,4 @@
-package me.evasive.supersurvival;
+/*package me.evasive.supersurvival;
 
 import de.jeff_media.customblockdata.CustomBlockData;
 import me.evasive.supersurvival.abilities.PlayerCooldowns;
@@ -84,4 +84,4 @@ public class MiningEvents implements Listener {
             customBlockData.set(key, PersistentDataType.STRING , "Placed");
         }
     }
-}
+}*/

@@ -1,6 +1,5 @@
 package me.evasive.supersurvival.abilities;
 
-import me.evasive.supersurvival.MiningEvents;
 import me.evasive.supersurvival.SuperSurvival;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
