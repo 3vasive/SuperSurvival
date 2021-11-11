@@ -1,5 +1,6 @@
-package me.evasive.supersurvival;
+package me.evasive.supersurvival.config;
 
+import me.evasive.supersurvival.SuperSurvival;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
