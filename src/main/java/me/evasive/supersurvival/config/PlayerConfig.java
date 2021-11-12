@@ -1,30 +1,25 @@
 package me.evasive.supersurvival.config;
 
-import me.evasive.supersurvival.SuperSurvival;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 public class PlayerConfig {
 
-    private SuperSurvival plugin;
     private static FileConfiguration playerConfig;
     private static File file;
 
-    public PlayerConfig(SuperSurvival plugin){
-        this.plugin = plugin;
-    }
-
     public static void setup() {
-        file = new File(Bukkit.getServer().getPluginManager().getPlugin("SuperSurvival").getDataFolder(), "Players.yml");
+        file = new File(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("SuperSurvival")).getDataFolder(), "Players.yml");
 
         if (!file.exists()) {
             try {
                 file.createNewFile();
-            } catch (IOException e) {
+            } catch (IOException ignored) {
 
             }
 
@@ -39,13 +34,9 @@ public class PlayerConfig {
     public static void saveConfig() {
         try {
             playerConfig.save(file);
-        } catch (IOException e) {
+        } catch (IOException ignored) {
 
         }
 
-    }
-
-    public static void reload() {
-        playerConfig = YamlConfiguration.loadConfiguration(file);
     }
 }

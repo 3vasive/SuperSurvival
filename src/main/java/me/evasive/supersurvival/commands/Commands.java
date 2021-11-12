@@ -2,17 +2,20 @@ package me.evasive.supersurvival.commands;
 
 import me.evasive.supersurvival.abilities.MiningEvents;
 import me.evasive.supersurvival.SuperSurvival;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.Objects;
 
 public class Commands implements CommandExecutor {
     public SuperSurvival plugin;
 
     public Commands(SuperSurvival plugin){
         this.plugin = plugin;
-        plugin.getCommand("skills").setExecutor(this);
+        Objects.requireNonNull(plugin.getCommand("skills")).setExecutor(this);
     }
 
     @Override
@@ -29,7 +32,7 @@ public class Commands implements CommandExecutor {
                 //Show command running players skills
                 return true;
             }else if(args.length == 1) {
-                //Show playername skills
+                //Nothing yet ignore error
                 return true;
             }
         }

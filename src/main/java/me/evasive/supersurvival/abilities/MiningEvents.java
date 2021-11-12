@@ -5,7 +5,6 @@ import me.evasive.supersurvival.SuperSurvival;
 import me.evasive.supersurvival.experienceManagers.ExperienceManager;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -21,7 +20,6 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import java.util.*;
-import java.util.regex.Matcher;
 
 public class MiningEvents implements Listener {
     public SuperSurvival plugin;

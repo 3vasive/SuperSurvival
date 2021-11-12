@@ -8,13 +8,15 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Objects;
+
 public class AdminCommands implements CommandExecutor {
 
     public SuperSurvival plugin;
 
     public AdminCommands(SuperSurvival plugin){
         this.plugin = plugin;
-        plugin.getCommand("admin").setExecutor(this);
+        Objects.requireNonNull(plugin.getCommand("admin")).setExecutor(this);
     }
 
     @Override
@@ -30,11 +32,6 @@ public class AdminCommands implements CommandExecutor {
                     Player player = Bukkit.getPlayer(args[1]);
                     if (player != null){
                         player.sendMessage(player.getDisplayName() + " is level " + MiningEvents.experienceManager.getLevel(player.getUniqueId(), 1) + " and has " + MiningEvents.experienceManager.getExperience(player.getUniqueId(), 1) + " experience");
-                        player.sendMessage("Experience " + MiningEvents.experienceManager.getExperience(player.getUniqueId(), 1));
-                        player.sendMessage("Level Experience " + MiningEvents.experienceManager.getLevelExperience(player.getUniqueId(), 1));
-                        player.sendMessage("Experience Needed " + MiningEvents.experienceManager.getExperienceNeeded(player.getUniqueId(), 1));
-                        player.sendMessage("Levelup Experience " + (MiningEvents.experienceManager.getExperience(player.getUniqueId(), 1) - MiningEvents.experienceManager.getLevelExperience(player.getUniqueId(), 1)));
-                        player.sendMessage("Level " + MiningEvents.experienceManager.getLevel(player.getUniqueId(), 1));
                     }
                 }else if(args[0].equals("logging")){
                     Player player = Bukkit.getPlayer(args[1]);

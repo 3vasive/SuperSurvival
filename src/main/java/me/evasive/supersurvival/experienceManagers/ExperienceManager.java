@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 
 import java.lang.Math;
@@ -51,7 +52,7 @@ public class ExperienceManager {
     }
 
     public void removeExperience(UUID uuid, int amount) {
-
+        //Ignore Errors for now
     }
 
     public int getExperience(UUID uuid, int skill) {
@@ -98,11 +99,7 @@ public class ExperienceManager {
             exp = (int) (100 * Math.pow(getLevel(uuid, 2) + 1, 1.85));
             playerexp = playerExperience.loggingExperience;
         }
-        if (playerexp + gain >= exp) {
-            return true;
-        } else {
-            return false;
-        }
+        return playerexp + gain >= exp;
     }
 
     public int getLevel(UUID uuid, int skill) {
@@ -119,7 +116,7 @@ public class ExperienceManager {
     }
 
     public void setExperience(UUID uuid, int amount) {
-
+        //Ignore errors for now
     }
 
     public void saveWorldData() {
@@ -135,7 +132,7 @@ public class ExperienceManager {
         FileConfiguration load = PlayerConfig.getConfig();
         if (load != null) {
             if (load.getConfigurationSection("players") != null) {
-                load.getConfigurationSection("players").getKeys(false).forEach(key -> {
+                Objects.requireNonNull(load.getConfigurationSection("players")).getKeys(false).forEach(key -> {
                     PlayerExperience playerExperience = new PlayerExperience();
                     playerExperience.miningExperience = PlayerConfig.getConfig().getInt("players." + key + ".mining");
                     playerExperience.loggingExperience = PlayerConfig.getConfig().getInt("players." + key + ".logging");
