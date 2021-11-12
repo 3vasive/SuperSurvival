@@ -20,8 +20,8 @@ public class Commands implements CommandExecutor {
         if (sender.hasPermission("supersurvival.admin")){
             if (args.length == 0){
                 Player player = (Player) sender;
-                sender.sendMessage("Mining: " + MiningEvents.miningExperienceManager.getLevel(player.getUniqueId()));
-                sender.sendMessage("Logging: null");
+                sender.sendMessage("Mining: " + MiningEvents.experienceManager.getLevel(player.getUniqueId(), 1));
+                sender.sendMessage("Logging: " + MiningEvents.experienceManager.getLevel(player.getUniqueId(), 2));
                 sender.sendMessage("Fishing: null");
                 sender.sendMessage("Farming: null");
                 sender.sendMessage("Hunting: null");

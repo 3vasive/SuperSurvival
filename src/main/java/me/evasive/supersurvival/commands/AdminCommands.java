@@ -29,7 +29,17 @@ public class AdminCommands implements CommandExecutor {
                 if(args[0].equals("mining")){
                     Player player = Bukkit.getPlayer(args[1]);
                     if (player != null){
-                        player.sendMessage(player.getDisplayName() + " is level " + MiningEvents.miningExperienceManager.getLevel(player.getUniqueId()) + " and has " + MiningEvents.miningExperienceManager.getExperience(player.getUniqueId()) + " experience");
+                        player.sendMessage(player.getDisplayName() + " is level " + MiningEvents.experienceManager.getLevel(player.getUniqueId(), 1) + " and has " + MiningEvents.experienceManager.getExperience(player.getUniqueId(), 1) + " experience");
+                        player.sendMessage("Experience " + MiningEvents.experienceManager.getExperience(player.getUniqueId(), 1));
+                        player.sendMessage("Level Experience " + MiningEvents.experienceManager.getLevelExperience(player.getUniqueId(), 1));
+                        player.sendMessage("Experience Needed " + MiningEvents.experienceManager.getExperienceNeeded(player.getUniqueId(), 1));
+                        player.sendMessage("Levelup Experience " + (MiningEvents.experienceManager.getExperience(player.getUniqueId(), 1) - MiningEvents.experienceManager.getLevelExperience(player.getUniqueId(), 1)));
+                        player.sendMessage("Level " + MiningEvents.experienceManager.getLevel(player.getUniqueId(), 1));
+                    }
+                }else if(args[0].equals("logging")){
+                    Player player = Bukkit.getPlayer(args[1]);
+                    if (player != null){
+                        player.sendMessage(player.getDisplayName() + " is level " + MiningEvents.experienceManager.getLevel(player.getUniqueId(), 2) + " and has " + MiningEvents.experienceManager.getExperience(player.getUniqueId(), 2) + " experience");
                     }
                 }
                 return true;

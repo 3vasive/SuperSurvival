@@ -15,7 +15,7 @@ public class JoinEvent implements Listener {
 @EventHandler
     public void playerJoin(PlayerJoinEvent e){
     Player player = e.getPlayer();
-    MiningEvents.miningExperienceManager.onJoin(player.getUniqueId());
+    MiningEvents.experienceManager.onJoin(player.getUniqueId());
     if (!Abilities.map.containsKey(player.getUniqueId())){
         PlayerCooldowns playerCooldowns = new PlayerCooldowns();
         playerCooldowns.player = player;

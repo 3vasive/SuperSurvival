@@ -21,7 +21,7 @@ import java.util.UUID;
 
 public class Abilities implements Listener {
 
-    EnumSet<Material> picks = EnumSet.of(Material.WOODEN_PICKAXE, Material.STONE_PICKAXE, Material.IRON_PICKAXE, Material.GOLDEN_PICKAXE, Material.DIAMOND_PICKAXE, Material.NETHERITE_PICKAXE);
+    public static EnumSet<Material> picks = EnumSet.of(Material.WOODEN_PICKAXE, Material.STONE_PICKAXE, Material.IRON_PICKAXE, Material.GOLDEN_PICKAXE, Material.DIAMOND_PICKAXE, Material.NETHERITE_PICKAXE);
     public SuperSurvival plugin;
 
     public Abilities(SuperSurvival plugin) {

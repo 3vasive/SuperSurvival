@@ -24,7 +24,7 @@ public final class SuperSurvival extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MiningEvents(this), this);
         getServer().getPluginManager().registerEvents(new JoinEvent(this), this);
         getServer().getPluginManager().registerEvents(new Abilities(this), this);
-        MiningEvents.miningExperienceManager.loadWorldData();
+        MiningEvents.experienceManager.loadWorldData();
         new AdminCommands(this);
         new Commands(this);
         getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "SuperSurvival Started");
@@ -33,7 +33,7 @@ public final class SuperSurvival extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        MiningEvents.miningExperienceManager.saveWorldData();
+        MiningEvents.experienceManager.saveWorldData();
         getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "SuperSurvival Shutdown");
     }
 }

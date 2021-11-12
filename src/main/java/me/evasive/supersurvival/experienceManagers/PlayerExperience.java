@@ -5,4 +5,5 @@ public class PlayerExperience {
     int loggingExperience;
     int huntingExperience;
     int farmingExperience;
+    int fishingExperience;
 }
