@@ -2,7 +2,6 @@ package me.evasive.supersurvival.commands;
 
 import me.evasive.supersurvival.abilities.MiningEvents;
 import me.evasive.supersurvival.SuperSurvival;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
